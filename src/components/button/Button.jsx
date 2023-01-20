@@ -1,11 +1,12 @@
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-function Button({ onClick, children }) {
-    return (
-        <button onClick={onClick}>
-            <i className={children === "handlePrevious" ? "fas fa-arrow-left" : "fas fa-arrow-right"} />
-        </button>
-    );
+function Button({ onClick, buttonType }) {
+  return (
+    <button className={`${buttonType}-button`} onClick={onClick}>
+      {buttonType === "previous" ? <FaArrowLeft /> : <FaArrowRight />}
+    </button>
+  );
 }
 
 export default Button;

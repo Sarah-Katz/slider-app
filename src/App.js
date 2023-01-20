@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './index.css'
 import Button from './components/Button/Button'
 import Puces from './components/Puces/Puces';
 
@@ -36,10 +35,14 @@ function App() {
 
     return (
         <div className="slider-container">
-            <img className="slider-image" src={images[currentImage].src} alt={images[currentImage].alt} />
-            <Button className="previous-button" onClick={handlePrevious}>handlePrevious</Button>
-            <Button className="next-button" onClick={handleNext}>handleNext</Button>
-            <Puces className="puces" images={images} currentImage={currentImage} onClick={handleImageClick} />
+            <div className="image-container">
+                <img className="slider-image" src={images[currentImage].src} alt={images[currentImage].alt} />
+                <Button onClick={handlePrevious} buttonType="previous" />
+                <Button onClick={handleNext} buttonType="next" />
+                <div className="puces-container">
+                    <Puces className="puces" images={images} currentImage={currentImage} onClick={handleImageClick} />
+                </div>
+            </div>
         </div>
     );
 }
