@@ -1,0 +1,99 @@
+body  {
+    background-color: rgba(121, 253, 253, 0.198);
+  }
+  
+  .slider-container {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+  }
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .slider-image {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .previous-button, .next-button {
+    position: absolute;
+    border: none;
+    background-color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    top: 50%;
+    font-size: 1.5rem;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .previous-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  .previous-button {
+    position: absolute;
+    border: none;
+    background-color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    margin-left: 20px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .next-button {
+    position: absolute;
+    border: none;
+    background-color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    margin-right: 20px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .puces-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .puces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .puce {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: solid 3px white;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .puce-active {
+    background-color: black;
+  }
+  
