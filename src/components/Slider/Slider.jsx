@@ -28,7 +28,8 @@ function Slider() {
             setPreviousButtonDisabled(false);
         }, 500);
     }
-
+    
+// eslint-disable-next-line
     function handleNext() {
         if (nextButtonDisabled) return;
         setNextButtonDisabled(true);
