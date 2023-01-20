@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../Button/Button'
+import Button from '../Button/Button';
 import Puces from '../Puces/Puces';
 
 function Slider() {
@@ -12,21 +12,34 @@ function Slider() {
         { id: 5, src: "/images/5.jpg", alt: "Grande ville" },
         { id: 6, src: "/images/6.jpg", alt: "Paris" }
     ]);
+    const [disabled, setDisabled] = useState(false);
+    const [previousButtonDisabled, setPreviousButtonDisabled] = useState(false);
+    const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
     function handlePrevious() {
-        if (currentImage === 0) {
-            setCurrentImage(images.length - 1);
-        } else {
-            setCurrentImage(currentImage - 1);
-        }
+        if (previousButtonDisabled) return;
+        setPreviousButtonDisabled(true);
+        setTimeout(() => {
+            if (currentImage === 0) {
+                setCurrentImage(images.length - 1);
+            } else {
+                setCurrentImage(currentImage - 1);
+            }
+            setPreviousButtonDisabled(false);
+        }, 500);
     }
 
     function handleNext() {
-        if (currentImage === images.length - 1) {
-            setCurrentImage(0);
-        } else {
-            setCurrentImage(currentImage + 1);
-        }
+        if (nextButtonDisabled) return;
+        setNextButtonDisabled(true);
+        setTimeout(() => {
+            if (currentImage === images.length - 1) {
+                setCurrentImage(0);
+            } else {
+                setCurrentImage(currentImage + 1);
+            }
+            setNextButtonDisabled(false);
+        }, 500);
     }
 
     function handleImageClick(id) {
@@ -38,8 +51,9 @@ function Slider() {
             <div className="image-container">
                 <img className="slider-image" src={images[currentImage].src} alt={images[currentImage].alt} />
                 <Puces images={images} currentImage={currentImage} onClick={handleImageClick} className="puces-container" />
-                <Button onClick={handlePrevious} buttonType="previous" />
-                <Button onClick={handleNext} buttonType="next" />
+                <Button onClick={handlePrevious} buttonType="previous" disabled={previousButtonDisabled} />
+                <Button onClick={handleNext} buttonType="next" disabled={nextButtonDisabled} />
+
             </div>
         </div>
     );

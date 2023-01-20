@@ -4,11 +4,11 @@ import './components/Slider/Slider.css';
 
 
 function App() {
-  return (
-    <div className="App">
-      <Slider />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Slider />
+        </div>
+    );
 }
 
 export default App;
