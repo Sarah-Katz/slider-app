@@ -21,7 +21,8 @@ body {
 }
 
 .previous-button,
-.next-button {
+.next-button,
+.autoPlay-button {
   position: absolute;
   border: none;
   background-color: white;
@@ -42,6 +43,11 @@ body {
 
 .next-button {
   right: 10px;
+}
+
+.autoPlay-button {
+  top: 10px;
+  right: 290px;
 }
 
 .puces-container {
@@ -72,9 +78,9 @@ body {
   background-color: black;
 }
 
-.previous-button.disabled, .next-button.disabled {
+.previous-button.disabled,
+.next-button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
-

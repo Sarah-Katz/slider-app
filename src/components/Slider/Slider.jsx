@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../Button/Button';
 import Puces from '../Puces/Puces';
 
 function Slider() {
     const [currentImage, setCurrentImage] = useState(0);
-    const [images] = useState([
+    const images = ([
         { id: 1, src: "/images/1.jpg", alt: "Street Art" },
         { id: 2, src: "/images/2.jpg", alt: "Panorama" },
         { id: 3, src: "/images/3.jpg", alt: "Architecture" },
@@ -12,9 +12,9 @@ function Slider() {
         { id: 5, src: "/images/5.jpg", alt: "Grande ville" },
         { id: 6, src: "/images/6.jpg", alt: "Paris" }
     ]);
-    const [disabled, setDisabled] = useState(false);
     const [previousButtonDisabled, setPreviousButtonDisabled] = useState(false);
     const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
+    const [autoPlay, setAutoPlay] = useState(false);
 
     function handlePrevious() {
         if (previousButtonDisabled) return;
@@ -46,6 +46,19 @@ function Slider() {
         setCurrentImage(id - 1);
     }
 
+    function handleAutoPlay() {
+        setAutoPlay(!autoPlay);
+    }    
+
+    useEffect(() => {
+        if (autoPlay) {
+            const intervalId = setInterval(() => {
+                handleNext();
+            }, 1000);
+            return () => clearInterval(intervalId);
+        }
+    }, [autoPlay, handleNext]);
+
     return (
         <div className="slider-container">
             <div className="image-container">
@@ -53,6 +66,7 @@ function Slider() {
                 <Puces images={images} currentImage={currentImage} onClick={handleImageClick} className="puces-container" />
                 <Button onClick={handlePrevious} buttonType="previous" disabled={previousButtonDisabled} />
                 <Button onClick={handleNext} buttonType="next" disabled={nextButtonDisabled} />
+                <Button onClick={handleAutoPlay} buttonType="autoPlay" autoPlay={autoPlay} />
 
             </div>
         </div>
