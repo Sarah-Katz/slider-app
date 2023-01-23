@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from './components/Slider/Slider';
 import './components/Slider/Slider.css';
 
-
+// The App component renders the Slider component and passes the "images" array as a prop
 function App() {
     const images = ([
         { id: 1, src: "/images/1.jpg", alt: "Street Art" },
